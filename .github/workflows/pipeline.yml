@@ -13,6 +13,10 @@ jobs:
         # exclude:
         #   - os: macos-latest
         #     node_version: 11
+        
+    concurrency: 
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
     - uses: actions/checkout@v3
@@ -21,7 +25,6 @@ jobs:
       run: |
         echo Bem-vindo!! Iniciando Pipeline
         echo Esse é meu repo: ${{ github.repository }}
-        echo Esse é a versão do OS: ${{ matrix }}
 
     - name: Step 02
       run: |
