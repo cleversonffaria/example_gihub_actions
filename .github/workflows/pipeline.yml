@@ -10,9 +10,9 @@ jobs:
       matrix:
         node_version: [8,10,11]
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        exclude:
-          - os: macos-latest
-            node_version: 11
+        # exclude:
+        #   - os: macos-latest
+        #     node_version: 11
 
     steps:
     - uses: actions/checkout@v3
@@ -21,9 +21,7 @@ jobs:
       run: |
         echo Bem-vindo!! Iniciando Pipeline
         echo Esse é meu repo: ${{ github.repository }}
-        echo Esse é a versão da matrix: ${{ matrix.node }} 
-        echo Esse é a versão da version: ${{ matrix.version }} 
-        echo Esse é a versão do OS: ${{ matrix.os }}
+        echo Esse é a versão do OS: ${{ matrix }}
 
     - name: Step 02
       run: |
@@ -40,6 +38,7 @@ jobs:
           date > generated.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git pull
           git add .
           git commit -m "generated"
           git push
