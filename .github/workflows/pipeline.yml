@@ -3,7 +3,7 @@ name: Teste CI/CD pipeline
 on: 
   push:
     branches:
-      - develop
+      - branch/random
 
   # pull_request:
   #   types: [closed]
