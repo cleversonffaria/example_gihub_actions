@@ -1,0 +1,22 @@
+name: Teste CI/CD pipeline
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        node_version: [8,10,11]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+
+    steps:
+    - uses: action/checkout@v1
+    - name: Run a one-line script
+      run: echo Bem-vindo!! Iniciando Pipeline
+    - name: Run a multi-line script
+      run: |
+        echo Adcionar outras actions para realizar seu build
+        echo Faça o deploy do seu projeto
+        echo Finalizando Pipeline
