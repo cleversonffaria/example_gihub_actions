@@ -3,8 +3,7 @@ name: Teste CI/CD pipeline
 on: 
   push:
     branches:
-      - branch/random
-
+      - main
   # pull_request:
   #   types: [closed]
   #   branches:
@@ -16,8 +15,6 @@ on:
 
   # push:
   #   tags:
-  #     - 'test-v*'
-  #     - 'dev-v*'
   #     - 'prod-v*'
 
 jobs:
