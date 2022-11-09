@@ -13,9 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Run a one-line script
-      run: echo Bem-vindo!! Iniciando Pipeline
-    - name: Run a multi-line script
+
+    - name: Step 01
+      run: |
+        echo Bem-vindo!! Iniciando Pipeline
+        echo Esse é meu repo: ${{ github.repository }}
+
+    - name: Step 02
       run: |
         echo Adcionar outras actions para realizar seu build
         echo Faça o deploy do seu projeto
