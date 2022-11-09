@@ -12,7 +12,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
-    - uses: action/checkout@v1
+    - uses: actions/checkout@v3
     - name: Run a one-line script
       run: echo Bem-vindo!! Iniciando Pipeline
     - name: Run a multi-line script
