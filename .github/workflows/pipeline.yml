@@ -1,13 +1,31 @@
-name: Teste CI/CD pipeline - DEVELOPER
+name: Teste CI/CD pipeline
 
-on: [push]
+on: 
+  push:
+    branches:
+      - develop
+
+  # pull_request:
+  #   types: [closed]
+  #   branches:
+  #     - develop
+
+  # pull_request:
+  # branches:
+  #   - staging
+
+  # push:
+  #   tags:
+  #     - 'test-v*'
+  #     - 'dev-v*'
+  #     - 'prod-v*'
 
 jobs:
   build:
 
     runs-on: ${{matrix.os}}
     strategy:
-      max-parallel: 4
+      max-parallel: 1
       matrix:
         node_version: [8,10,11]
         os: [ubuntu-latest, windows-latest, macOS-latest]
