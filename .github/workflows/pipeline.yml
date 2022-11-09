@@ -1,0 +1,62 @@
+name: Teste CI/CD pipeline
+
+on: 
+  push:
+    branches:
+      - branch/random
+
+  # pull_request:
+  #   types: [closed]
+  #   branches:
+  #     - develop
+
+  # pull_request:
+  # branches:
+  #   - staging
+
+  # push:
+  #   tags:
+  #     - 'test-v*'
+  #     - 'dev-v*'
+  #     - 'prod-v*'
+
+jobs:
+  build:
+
+    runs-on: ${{matrix.os}}
+    strategy:
+      max-parallel: 1
+      matrix:
+        node_version: [8,10,11]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        # exclude:
+        #   - os: macos-latest
+        #     node_version: 11
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Step 01
+      run: |
+        echo Bem-vindo!! Iniciando Pipeline
+        echo Esse é meu repo: ${{ github.repository }}
+
+    - name: Step 02
+      run: |
+        echo Estou no meio do fluxo
+
+    - name: Step 03
+      run: |
+        echo Adcionar outras actions para realizar seu build
+        echo Faça o deploy do seu projeto
+        echo Finalizando Pipeline
+
+    # - name: Commit Final
+    #   run: |
+    #       git pull
+    #       date > generated.txt
+    #       git config user.name github-actions
+    #       git config user.email github-actions@github.com
+    #       git add .
+    #       git commit -m "generated"
+    #       git push
