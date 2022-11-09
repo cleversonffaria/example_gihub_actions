@@ -21,6 +21,19 @@ jobs:
 
     - name: Step 02
       run: |
+        echo Estou no meio do fluxo
+
+    - name: Step 03
+      run: |
         echo Adcionar outras actions para realizar seu build
         echo Faça o deploy do seu projeto
         echo Finalizando Pipeline
+
+    - name: Commit Final
+    - run: |
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
