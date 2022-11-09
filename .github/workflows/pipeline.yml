@@ -7,16 +7,13 @@ jobs:
 
     runs-on: ${{matrix.os}}
     strategy:
+      max-parallel: 1
       matrix:
         node_version: [8,10,11]
         os: [ubuntu-latest, windows-latest, macOS-latest]
         # exclude:
         #   - os: macos-latest
         #     node_version: 11
-        
-    concurrency: 
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
 
     steps:
     - uses: actions/checkout@v3
