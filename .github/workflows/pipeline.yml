@@ -10,6 +10,9 @@ jobs:
       matrix:
         node_version: [8,10,11]
         os: [ubuntu-latest, windows-latest, macOS-latest]
+        exclude:
+          - os: macos-latest
+            version: 11
 
     steps:
     - uses: actions/checkout@v3
@@ -18,6 +21,9 @@ jobs:
       run: |
         echo Bem-vindo!! Iniciando Pipeline
         echo Esse é meu repo: ${{ github.repository }}
+        echo Esse é a versão da matrix: ${{ matrix.node }} 
+        echo Esse é a versão da version: ${{ matrix.version }} 
+        echo Esse é a versão do OS: ${{ matrix.os }}
 
     - name: Step 02
       run: |
