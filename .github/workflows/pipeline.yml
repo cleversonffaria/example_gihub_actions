@@ -1,4 +1,4 @@
-name: Teste CI/CD pipeline
+name: Teste CI/CD pipeline - DEVELOPER
 
 on: [push]
 
@@ -33,12 +33,12 @@ jobs:
         echo Faça o deploy do seu projeto
         echo Finalizando Pipeline
 
-    - name: Commit Final
-      run: |
-          git pull
-          date > generated.txt
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
+    # - name: Commit Final
+    #   run: |
+    #       git pull
+    #       date > generated.txt
+    #       git config user.name github-actions
+    #       git config user.email github-actions@github.com
+    #       git add .
+    #       git commit -m "generated"
+    #       git push
