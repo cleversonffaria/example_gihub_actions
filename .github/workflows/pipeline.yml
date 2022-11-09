@@ -3,32 +3,22 @@ name: Teste CI/CD pipeline
 on: 
   push:
     branches:
-      - main
-  # pull_request:
-  #   types: [closed]
-  #   branches:
-  #     - develop
-
-  # pull_request:
-  # branches:
-  #   - staging
-
-  # push:
-  #   tags:
-  #     - 'prod-v*'
+      - develop
+    tags:
+      - 'test-v*'
 
 jobs:
   build:
 
     runs-on: ${{matrix.os}}
     strategy:
-      max-parallel: 2
+      max-parallel: 1
       matrix:
         node_version: [8,10,11]
         os: [ubuntu-latest, windows-latest, macOS-latest]
-        # exclude:
-        #   - os: macos-latest
-        #     node_version: 11
+        exclude:
+          - os: windows-latest
+            node_version: 11
 
     steps:
     - uses: actions/checkout@v3
@@ -48,12 +38,12 @@ jobs:
         echo Faça o deploy do seu projeto
         echo Finalizando Pipeline
 
-    # - name: Commit Final
-    #   run: |
-    #       git pull
-    #       date > generated.txt
-    #       git config user.name github-actions
-    #       git config user.email github-actions@github.com
-    #       git add .
-    #       git commit -m "generated"
-    #       git push
+    - name: Commit Final
+      run: |
+          git pull
+          date > generated.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
