@@ -1,3 +1,3 @@
-# exemple_gihub_actions
+# Example Github Actions - Testing
 
-# TESTE PIPELINE 🚀 <p><img src="https://github.com/cleversonffaria/exemple_gihub_actions/actions/workflows/pipeline.yml/badge.svg"/></p>
+# Test Pipeline 🚀 <p><img src="https://github.com/cleversonffaria/exemple_gihub_actions/actions/workflows/pipeline.yml/badge.svg"/></p>
